@@ -1,3 +1,12 @@
+import { Helmet } from 'react-helmet';
+
 export const TodoApp = () => {
-  return <h1>Leninner</h1>;
+  return (
+    <>
+      <Helmet>
+        <title>Todo App 😉</title>
+      </Helmet>
+      <h1>Todo App</h1>
+    </>
+  );
 };

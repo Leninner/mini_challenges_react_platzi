@@ -1,3 +1,12 @@
+import { Helmet } from 'react-helmet';
+
 export const GifsApp = () => {
-  return <h1>El pepe</h1>;
+  return (
+    <>
+      <Helmet>
+        <title>Gifs App 😉</title>
+      </Helmet>
+      <h1>Gifs App</h1>
+    </>
+  );
 };

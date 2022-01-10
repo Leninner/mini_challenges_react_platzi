@@ -1,3 +1,12 @@
+import { Helmet } from 'react-helmet';
+
 export const MusicApp = () => {
-  return <h1>Lenin</h1>;
+  return (
+    <>
+      <Helmet>
+        <title>Music App 😉</title>
+      </Helmet>
+      <h1>Music App</h1>
+    </>
+  );
 };
