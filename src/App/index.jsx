@@ -9,7 +9,7 @@ export const Home = () => {
       <Helmet>
         <title>Home 😉</title>
       </Helmet>
-      <div className='flex flex-col items-center justify-center w-screen h-screen cursor-default bg-slate-800'>
+      <div className='flex flex-col items-center justify-center w-screen h-screen text-center cursor-default bg-slate-800'>
         <h1 className='flex flex-col mb-4 text-4xl font-bold text-white sm:block'>
           Welcome to the <span className='text-6xl text-red-500'>Mini Challenges</span>
         </h1>
@@ -28,7 +28,12 @@ export const Home = () => {
             <button className='button button-blue'>Music App</button>
           </Link>
         </div>
-        <span className='absolute bottom-0 float-right text-slate-400'>@Leninner | {year}</span>
+        <span className='absolute bottom-0 float-right text-slate-400'>
+          <a href='https://github.com/leninner' target='_blank' rel='noreferrer' className='hover:underline'>
+            @Leninner
+          </a>{' '}
+          | {year}
+        </span>
       </div>
     </>
   );
