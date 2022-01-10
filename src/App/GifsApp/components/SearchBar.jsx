@@ -1,3 +1,7 @@
 export const SearchBar = () => {
-  return <h1>Leninner</h1>;
+  return (
+    <div className='flex justify-center w-screen'>
+      <input type='text' className='search' placeholder='Search for a gif' />
+    </div>
+  );
 };
