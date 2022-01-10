@@ -11,7 +11,7 @@ export const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/gifs' element={<GifsApp />} />
         <Route path='/music' element={<MusicApp />} />
-        <Route path='todo' element={<TodoApp />} />
+        <Route path='/todo' element={<TodoApp />} />
         <Route path='*' element={<Home />} />
       </Routes>
     </BrowserRouter>

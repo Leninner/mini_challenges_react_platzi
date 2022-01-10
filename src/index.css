@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 .button {
-  @apply px-3 py-2 rounded bg-zinc-800 text-cyan-100 mx-1 hover:bg-zinc-700 hover:text-cyan-200;
+  @apply px-4 sm:px-6 py-3 rounded-md text-sm sm:text-xl hover:bg-white hover:text-blue-sky border-2 border-blue-sky font-bold mx-2 duration-300;
+}
+
+.button-blue {
+  @apply bg-blue-sky text-white;
 }
