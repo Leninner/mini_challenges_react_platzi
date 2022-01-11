@@ -19,7 +19,7 @@
 }
 
 .portada {
-  @apply w-full h-screen flex flex-col items-center;
+  @apply w-full h-full flex flex-col items-center;
 }
 
 .input {

@@ -9,8 +9,6 @@ export const TodoApp = () => {
   const initialUserValues = useUserValues();
   const { show } = initialUserValues;
 
-  console.log(show);
-
   return (
     <>
       <Helmet>
