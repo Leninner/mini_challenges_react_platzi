@@ -7,10 +7,14 @@ import { Grid } from './containers/Grid';
 
 export const GifsApp = () => {
   const [search, setSearch] = useState('');
-  const [gifs, setGifs] = useState('');
+  const [gifs, setGifs] = useState(() => {
+    const gifs = sessionStorage.getItem('search');
+    return gifs ? gifs : '';
+  });
 
   const handleChange = (e) => {
     setSearch(e.target.value);
+    sessionStorage.setItem('search', e.target.value);
   };
 
   const handleClick = () => {
