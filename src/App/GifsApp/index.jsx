@@ -27,14 +27,14 @@ export const GifsApp = () => {
         <h1 className='text-5xl font-bold text-white'>
           Gifs <span className='text-yellow'>App</span>
         </h1>
-        <div className='absolute p-5 duration-300 bg-white rounded-full -left-3 -top-3 hover:bg-blue-sky hover:text-white'>
-          <Link to='/'>
+        <Link to='/'>
+          <div className='absolute p-5 duration-300 bg-white rounded-full -left-3 -top-3 hover:bg-blue-sky hover:text-white'>
             <BiHomeAlt size='30' />
-          </Link>
-        </div>
+          </div>
+        </Link>
       </header>
       <SearchBar onChange={handleChange} value={search} onClick={handleClick} />
-      {gifs && <Grid search={gifs} />}
+      <Grid search={gifs} />
     </>
   );
 };

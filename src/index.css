@@ -13,3 +13,7 @@
 .search {
   @apply w-3/4 py-2 mt-2 text-2xl text-center bg-transparent border border-gray-400 outline-none placeholder:px-3 placeholder-slate-500 focus:placeholder-indigo-600 rounded-r-3xl rounded-l-3xl sm:py-3 focus:border-indigo-600;
 }
+
+.feedback {
+  @apply absolute w-1/2 text-2xl text-center left-1/4 top-1/2;
+}
