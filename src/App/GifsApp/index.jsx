@@ -1,10 +1,23 @@
 import { Helmet } from 'react-helmet';
-import { Grid } from './containers/Grid';
 import { SearchBar } from './components/SearchBar';
 import { BiHomeAlt } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Grid } from './containers/Grid';
 
 export const GifsApp = () => {
+  const [search, setSearch] = useState('');
+  const [gifs, setGifs] = useState('');
+
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const handleClick = () => {
+    setGifs(search);
+    setSearch('');
+  };
+
   return (
     <>
       <Helmet>
@@ -20,8 +33,8 @@ export const GifsApp = () => {
           </Link>
         </div>
       </header>
-      <SearchBar />
-      <Grid />
+      <SearchBar onChange={handleChange} value={search} onClick={handleClick} />
+      {gifs && <Grid search={gifs} />}
     </>
   );
 };
