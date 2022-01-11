@@ -19,9 +19,13 @@
 }
 
 .portada {
-  @apply w-screen h-screen flex flex-col items-center;
+  @apply w-full h-screen flex flex-col items-center;
 }
 
 .input {
   @apply w-full py-2 px-3 text-2xl text-center bg-transparent border border-gray-400 outline-none placeholder:px-3 placeholder-slate-500 focus:placeholder-indigo-600 text-indigo-600 rounded-r-3xl rounded-l-3xl sm:py-3 focus:border-indigo-600 mt-3 md:w-full md:py-1 md:text-xl;
+}
+
+.TodoItem {
+  @apply relative w-5/6 px-5 py-2 m-auto mt-4 mb-4 text-center text-white duration-300 border-2 shadow-md cursor-pointer bg-blue-sky rounded-r-3xl rounded-l-3xl shadow-cyan-500/50 hover:text-blue-sky border-blue-sky hover:bg-white hover:border-blue-sky hover:shadow-none;
 }

@@ -26,7 +26,7 @@ export const GifsApp = () => {
       <Helmet>
         <title>Gifs App 😉</title>
       </Helmet>
-      <header className='w-screen py-16 text-center shadow-sm cursor-default bg-gradient-to-r from-fuchsia-600 to-indigo-600 shadow-gray-500'>
+      <header className='w-full py-16 text-center shadow-sm cursor-default bg-gradient-to-r from-fuchsia-600 to-indigo-600 shadow-gray-500'>
         <h1 className='text-5xl font-bold text-white'>
           Gifs <span className='text-yellow'>App</span>
         </h1>
