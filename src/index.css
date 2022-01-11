@@ -19,5 +19,9 @@
 }
 
 .portada {
-  @apply w-full h-full bg-cover bg-center;
+  @apply w-screen h-screen flex flex-col items-center;
+}
+
+.input {
+  @apply w-full py-2 px-3 text-2xl text-center bg-transparent border border-gray-400 outline-none placeholder:px-3 placeholder-slate-500 focus:placeholder-indigo-600 text-indigo-600 rounded-r-3xl rounded-l-3xl sm:py-3 focus:border-indigo-600 mt-3 md:w-full md:py-1 md:text-xl;
 }
