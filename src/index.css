@@ -17,3 +17,7 @@
 .feedback {
   @apply absolute w-1/2 text-2xl text-center left-1/4 top-1/2;
 }
+
+.portada {
+  @apply w-full h-full bg-cover bg-center;
+}
