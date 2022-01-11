@@ -1,6 +1,7 @@
 import { Header } from '../components/Header';
 import { SearchBar } from '../components/SearchBar';
 import { TodoList } from '../components/TodoList';
+import { FormAddTodo } from './FormAddTodo';
 
 export const Main = () => {
   return (
@@ -8,6 +9,7 @@ export const Main = () => {
       <Header />
       <SearchBar />
       <TodoList />
+      <FormAddTodo />
     </>
   );
 };
