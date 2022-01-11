@@ -21,6 +21,7 @@ export const useFetchData = (search = 'gatitos') => {
       .catch((error) => {
         setDatos({ ...datos, error: true, loading: false });
       });
+    // eslint-disable-next-line
   }, [search]);
 
   return datos;
