@@ -2,11 +2,12 @@ import { Helmet } from 'react-helmet';
 import { Portada } from './components/Portada';
 import { ReturnToHome } from '../ReturnToHome';
 import { TodoAppContext } from './context';
-import { useUserValues } from './hooks/useUserValues';
+import { useUserValues } from './hooks/useInitialState';
 import { Main } from './containers/Main';
 
 export const TodoApp = () => {
   const initialUserValues = useUserValues();
+
   const { show } = initialUserValues;
 
   return (

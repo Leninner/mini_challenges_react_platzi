@@ -1,12 +1,14 @@
 import { TodoItem } from './TodoItem';
+import { useContext } from 'react';
+import { TodoAppContext } from '../context';
 
 export const TodoList = () => {
-  const array = [1, 2, 3, 4, 5, 6, 7, 11, 8, 9];
+  const { todos } = useContext(TodoAppContext);
 
   return (
     <div>
-      {array.map((value) => (
-        <TodoItem key={value} />
+      {todos.map((value, index) => (
+        <TodoItem key={index} {...value} />
       ))}
     </div>
   );
