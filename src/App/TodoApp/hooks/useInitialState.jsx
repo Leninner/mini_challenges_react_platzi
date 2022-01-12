@@ -4,6 +4,8 @@ export const useUserValues = () => {
   const [userInfo, setUserInfo] = useState({});
   const [show, setShow] = useState(true);
   const [todos, setTodos] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,7 +17,16 @@ export const useUserValues = () => {
     setShow(false);
   };
 
-  console.log(todos);
-
-  return { userInfo, handleChange, handleSubmit, show, todos, setTodos };
+  return {
+    userInfo,
+    handleChange,
+    handleSubmit,
+    show,
+    todos,
+    setTodos,
+    showForm,
+    setShowForm,
+    isEditing,
+    setIsEditing,
+  };
 };
