@@ -1,8 +1,10 @@
+import { AiOutlinePlus } from 'react-icons/ai';
+
 export const ButtonAddTodo = ({ showForm, setShowForm }) => {
   return (
-    <div className='fixed bottom-0 right-0'>
-      <button className='button' onClick={() => setShowForm(!showForm)}>
-        +
+    <div className='AddTodoButton'>
+      <button onClick={() => setShowForm(!showForm)}>
+        <AiOutlinePlus />
       </button>
     </div>
   );

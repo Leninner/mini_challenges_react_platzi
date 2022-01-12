@@ -29,3 +29,7 @@
 .TodoItem {
   @apply relative w-5/6 px-5 py-2 m-auto mt-4 mb-4 text-center text-white duration-300 border-2 shadow-md cursor-pointer bg-blue-sky rounded-r-3xl rounded-l-3xl shadow-cyan-500/50 hover:text-blue-sky border-blue-sky hover:bg-white hover:border-blue-sky hover:shadow-none;
 }
+
+.AddTodoButton {
+  @apply fixed bottom-0 right-0 z-40 flex items-center justify-center w-16 h-16 mb-2 mr-2 text-5xl font-bold duration-300 bg-white border-2 rounded-full border-blue-sky text-blue-sky hover:bg-blue-sky hover:text-white;
+}
