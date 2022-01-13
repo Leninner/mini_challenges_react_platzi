@@ -27,11 +27,13 @@ export const TodoItem = ({
         <h1 className='text-xl font-bold '>{title}</h1>
         <p className='mb-1 '>{description}</p>
         <span className='text-sm hover:text-slate-800'>{date}</span>
+
         <figure
           className='absolute z-50 p-1 text-white duration-300 border-2 rounded-full -right-3 border-slate-800 bg-slate-800 -top-3 hover:bg-white hover:text-slate-800'
           onClick={handleOptions}>
           <ImStack size='20' />
         </figure>
+
         {isOptions && (
           <div className='absolute top-0 right-0 flex items-center justify-end w-20 h-20 bg-white border-b border-l border-gray-500 rounded-bl-3xl'>
             <nav>
@@ -50,6 +52,7 @@ export const TodoItem = ({
             </nav>
           </div>
         )}
+
         {isEditing && <FormAddTodo />}
       </div>
     </>
