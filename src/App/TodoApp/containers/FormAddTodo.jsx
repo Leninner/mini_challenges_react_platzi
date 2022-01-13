@@ -1,12 +1,16 @@
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { ButtonAddTodo } from '../components/ButtonAddTodo';
 import { useSearchValues } from '../hooks/useSearchValues';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { TodoAppContext } from '../context';
 
 export const FormAddTodo = () => {
   const { todoInfo, setTodoInfo } = useSearchValues();
   const { todos, setTodos, showForm, setShowForm, isEditing, setIsEditing } = useContext(TodoAppContext);
+
+  useEffect(() => {
+    isEditing.isEditing && setTodoInfo(todos[isEditing.index]);
+  }, [isEditing.isEditing, todos, isEditing.index, setTodoInfo]);
 
   const handleSubmitAdd = (e) => {
     e.preventDefault();
