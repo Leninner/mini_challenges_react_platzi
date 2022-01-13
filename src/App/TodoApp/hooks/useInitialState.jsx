@@ -16,7 +16,7 @@ export const useUserValues = () => {
 
   useEffect(() => {
     setSearchedTodos(todos.filter((todo) => todo.title?.toLowerCase().includes(value.toLowerCase())));
-  }, [value]);
+  }, [value, todos]);
 
   console.log(value);
 
