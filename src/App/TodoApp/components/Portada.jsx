@@ -9,7 +9,7 @@ export const Portada = () => {
     <>
       <section className='portada'>
         <form className='mt-10 text-center md:w-1/2' onSubmit={handleSubmit}>
-          <h1 className='text-xl'>Please, provide your personal info</h1>
+          <h1 className='text-xl font-bold'>Please, provide your personal info</h1>
 
           <div className='relative flex flex-col'>
             <input

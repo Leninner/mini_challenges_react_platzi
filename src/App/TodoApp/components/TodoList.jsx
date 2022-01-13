@@ -11,15 +11,20 @@ export const TodoList = () => {
     setTodos(newTodos);
   };
 
+  console.log(todos);
+
   return (
     <div>
       {!todos.length && (
         <p className='mt-20 feedback animate-pulse'>
-          No tienes tareas por hacer <span className='text-2xl font-bold text-red-500 '>añade tu primera tarea</span>
+          You don´t have any tasks yet <span className='text-2xl font-bold text-red-500 '>Add your task</span>
         </p>
       )}
 
-      {valueSearch && searchedTodos.map((value, index) => <TodoItem key={index} {...value} index={index} />)}
+      {valueSearch &&
+        searchedTodos.map((value, index) => (
+          <TodoItem key={index} {...value} index={index} onDelete={() => handleDelete(index)} />
+        ))}
 
       {!searchedTodos.length && valueSearch.length ? (
         <p className='feedback'>
