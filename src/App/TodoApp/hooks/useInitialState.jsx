@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const useUserValues = () => {
   const [userInfo, setUserInfo] = useState({});
@@ -12,10 +12,13 @@ export const useUserValues = () => {
 
   const handleChangeSearch = (e) => {
     setValue(e.target.value);
-    setSearchedTodos(todos.filter((todo) => todo.title.includes(value)));
   };
 
-  console.log(todos, searchedTodos);
+  useEffect(() => {
+    setSearchedTodos(todos.filter((todo) => todo.title?.toLowerCase().includes(value.toLowerCase())));
+  }, [value]);
+
+  console.log(value);
 
   const handleChangeUserInfo = (e) => {
     const { name, value } = e.target;
@@ -28,6 +31,7 @@ export const useUserValues = () => {
   };
 
   return {
+    searchedTodos,
     userInfo,
     handleChangeSearch,
     handleSubmit,

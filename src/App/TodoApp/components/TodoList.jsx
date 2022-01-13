@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { TodoAppContext } from '../context';
 
 export const TodoList = () => {
-  const { todos, setTodos } = useContext(TodoAppContext);
+  const { todos, setTodos, searchedTodos, valueSearch } = useContext(TodoAppContext);
 
   const handleDelete = (index) => {
     const newTodos = [...todos];
@@ -13,9 +13,12 @@ export const TodoList = () => {
 
   return (
     <div>
-      {todos.map((value, index) => (
-        <TodoItem key={index} {...value} index={index} onDelete={() => handleDelete(index)} />
-      ))}
+      {valueSearch && searchedTodos.map((value, index) => <TodoItem key={index} {...value} index={index} />)}
+
+      {!valueSearch &&
+        todos.map((value, index) => (
+          <TodoItem key={index} {...value} index={index} onDelete={() => handleDelete(index)} />
+        ))}
     </div>
   );
 };
