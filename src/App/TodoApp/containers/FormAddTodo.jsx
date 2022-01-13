@@ -8,8 +8,8 @@ export const FormAddTodo = () => {
     useContext(TodoAppContext);
 
   useEffect(() => {
-    isEditing.isEditing && setTodoInfo(todos[isEditing.index]);
-  }, [isEditing.isEditing, todos, isEditing.index, setTodoInfo]);
+    isEditing.isEditing && setTodoInfo(todos[todos.indexOf(todos.find((todo) => todo.title === isEditing.todo.title))]);
+  }, [isEditing.isEditing, todos, isEditing.todo, setTodoInfo]);
 
   const handleSubmitAdd = (e) => {
     e.preventDefault();
@@ -19,12 +19,12 @@ export const FormAddTodo = () => {
     setTodoInfo({});
   };
 
-  const handleSubmitEdit = (e, index) => {
+  const handleSubmitEdit = (e) => {
     e.preventDefault();
     setIsEditing({ ...isEditing, isEditing: false });
     setShowForm(false);
     const newTodos = [...todos];
-    newTodos[index] = todoInfo;
+    newTodos[todos.indexOf(todos.find((todo) => todo.title === isEditing.todo.title))] = todoInfo;
     setTodos([...newTodos]);
     setTodoInfo({});
   };
@@ -75,7 +75,7 @@ export const FormAddTodo = () => {
               <input type='date' name='date' className='input' value={todoInfo.date || ''} onChange={handleChange} />
             </div>
             {isEditing.isEditing ? (
-              <button className='mt-7 button button-blue' onClick={(e) => handleSubmitEdit(e, isEditing.index)}>
+              <button className='mt-7 button button-blue' onClick={handleSubmitEdit}>
                 Aceptar
               </button>
             ) : (

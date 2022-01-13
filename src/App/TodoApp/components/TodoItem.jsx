@@ -8,7 +8,6 @@ export const TodoItem = ({
   description = 'Vamos a cocinar esto y te va a gustar',
   date = new Date().toDateString(),
   onDelete,
-  index,
 }) => {
   const [isOptions, setIsOptions] = useState(false);
   const { isEditing, setIsEditing } = useContext(TodoAppContext);
@@ -17,8 +16,8 @@ export const TodoItem = ({
     setIsOptions(!isOptions);
   };
 
-  const handleEdit = (index) => {
-    setIsEditing({ isEditing: true, index });
+  const handleEdit = (value) => {
+    setIsEditing({ isEditing: true, todo: { ...value } });
   };
 
   return (
@@ -40,7 +39,13 @@ export const TodoItem = ({
               <ul className='flex flex-col items-end'>
                 <li
                   className='w-5/6 m-2 text-sm font-bold border-b text-slate-800 hover:text-blue'
-                  onClick={() => handleEdit(index)}>
+                  onClick={() =>
+                    handleEdit({
+                      title,
+                      description,
+                      date,
+                    })
+                  }>
                   Editar
                 </li>
                 <li className='w-5/6 m-2 text-sm font-bold border-b text-slate-800 hover:text-green'>Completado</li>
@@ -53,6 +58,7 @@ export const TodoItem = ({
             </nav>
           </div>
         )}
+        {/* TODO */}
 
         {isEditing && <FormAddTodo />}
       </div>

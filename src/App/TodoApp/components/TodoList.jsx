@@ -29,7 +29,7 @@ export const TodoList = () => {
 
       {valueSearch &&
         searchedTodos.map((value, index) => (
-          <TodoItem key={index} {...value} index={index} onDelete={() => handleDeleteSearchedTodos(value.title)} />
+          <TodoItem key={index} {...value} onDelete={() => handleDeleteSearchedTodos(value.title)} />
         ))}
 
       {!searchedTodos.length && valueSearch.length ? (
@@ -39,9 +39,7 @@ export const TodoList = () => {
       ) : null}
 
       {!valueSearch && todos.length
-        ? todos.map((value, index) => (
-            <TodoItem key={index} {...value} index={index} onDelete={() => handleDelete(index)} />
-          ))
+        ? todos.map((value, index) => <TodoItem key={index} {...value} onDelete={() => handleDelete(index)} />)
         : null}
     </div>
   );
