@@ -8,10 +8,16 @@ export const TodoList = () => {
   const handleDelete = (index) => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
+
     setTodos(newTodos);
   };
 
-  console.log(todos);
+  const handleDeleteSearchedTodos = (value) => {
+    const newTodos = [...todos];
+    const filteredTodos = newTodos.filter((todo) => todo.title !== value);
+
+    setTodos(filteredTodos);
+  };
 
   return (
     <div>
@@ -23,7 +29,7 @@ export const TodoList = () => {
 
       {valueSearch &&
         searchedTodos.map((value, index) => (
-          <TodoItem key={index} {...value} index={index} onDelete={() => handleDelete(index)} />
+          <TodoItem key={index} {...value} index={index} onDelete={() => handleDeleteSearchedTodos(value.title)} />
         ))}
 
       {!searchedTodos.length && valueSearch.length ? (
