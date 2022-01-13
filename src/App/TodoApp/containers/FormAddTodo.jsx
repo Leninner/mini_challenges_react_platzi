@@ -46,7 +46,8 @@ export const FormAddTodo = () => {
                 className='text-3xl text-black duration-300 rounded-full hover:text-white hover:bg-black'
                 onClick={() => {
                   setShowForm(false);
-                  setIsEditing(false);
+                  setIsEditing({ ...isEditing, isEditing: false });
+                  setTodoInfo({});
                 }}
               />
             </div>
