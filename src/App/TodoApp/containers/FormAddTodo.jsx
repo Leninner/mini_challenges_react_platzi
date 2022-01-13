@@ -47,7 +47,9 @@ export const FormAddTodo = () => {
                 }}
               />
             </div>
-            <h1 className='text-4xl font-bold text-center'>Añadir Tarea</h1>
+            <h1 className='text-4xl font-bold text-center'>
+              {isEditing.isEditing ? 'Edita tu tarea' : 'Añade tu tarea'}
+            </h1>
             <div>
               <input
                 type='text'
