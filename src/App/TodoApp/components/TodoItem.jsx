@@ -35,14 +35,15 @@ export const TodoItem = ({
         </figure>
 
         {isOptions && (
-          <div className='absolute top-0 right-0 flex items-center justify-end w-20 h-20 bg-white border-b border-l border-gray-500 rounded-bl-3xl'>
+          <div className='absolute top-0 right-0 flex items-center justify-end h-auto bg-white border-b border-l border-gray-500 w-wuto rounded-bl-3xl'>
             <nav>
               <ul className='flex flex-col items-end'>
                 <li
-                  className='w-5/6 m-2 text-sm font-bold border-b text-slate-800 hover:text-green'
+                  className='w-5/6 m-2 text-sm font-bold border-b text-slate-800 hover:text-blue'
                   onClick={() => handleEdit(index)}>
                   Editar
                 </li>
+                <li className='w-5/6 m-2 text-sm font-bold border-b text-slate-800 hover:text-green'>Completado</li>
                 <li
                   className='w-5/6 m-2 text-sm font-bold border-b text-slate-800 hover:text-red-500'
                   onClick={onDelete}>
