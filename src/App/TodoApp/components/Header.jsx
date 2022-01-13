@@ -22,9 +22,9 @@ export const Header = () => {
       </p>
 
       <img
-        src='https://images.generated.photos/GlXfLN0CLeUvrMkxZ8bOUoaiUb_q6xXAr4uqCS_Tbcw/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LmNvbmQvMzA5ZmYx/YzYtMjJlNi00NTJm/LWJlOWEtNDlkYzVj/ZDdiNjU5LmpwZw.jpg'
+        src='https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80'
         alt=''
-        className='w-10 rounded-full'
+        className='object-cover rounded-full w-11 h-11'
       />
     </header>
   );
