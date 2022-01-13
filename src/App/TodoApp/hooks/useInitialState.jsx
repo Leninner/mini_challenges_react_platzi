@@ -12,12 +12,10 @@ export const useUserValues = () => {
 
   const handleChangeSearch = (e) => {
     setValue(e.target.value);
-    setSearchedTodos(() => {
-      todos.filter((todo) => todo.title.includes(value));
-    });
+    setSearchedTodos(todos.filter((todo) => todo.title.includes(value)));
   };
 
-  console.log(searchedTodos);
+  console.log(todos, searchedTodos);
 
   const handleChangeUserInfo = (e) => {
     const { name, value } = e.target;
