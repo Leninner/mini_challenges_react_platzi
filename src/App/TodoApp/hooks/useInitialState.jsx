@@ -6,8 +6,20 @@ export const useUserValues = () => {
   const [todos, setTodos] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [searchedTodos, setSearchedTodos] = useState([]);
+  const [todoInfo, setTodoInfo] = useState({});
+  const [value, setValue] = useState('');
 
-  const handleChange = (e) => {
+  const handleChangeSearch = (e) => {
+    setValue(e.target.value);
+    setSearchedTodos(() => {
+      todos.filter((todo) => todo.title.includes(value));
+    });
+  };
+
+  console.log(searchedTodos);
+
+  const handleChangeUserInfo = (e) => {
     const { name, value } = e.target;
     setUserInfo({ ...userInfo, [name]: value });
   };
@@ -19,7 +31,7 @@ export const useUserValues = () => {
 
   return {
     userInfo,
-    handleChange,
+    handleChangeSearch,
     handleSubmit,
     show,
     todos,
@@ -28,5 +40,9 @@ export const useUserValues = () => {
     setShowForm,
     isEditing,
     setIsEditing,
+    valueSearch: value,
+    handleChangeUserInfo,
+    todoInfo,
+    setTodoInfo,
   };
 };

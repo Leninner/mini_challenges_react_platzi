@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { TodoAppContext } from '../context';
 
 export const Portada = () => {
-  const { userInfo, handleChange, handleSubmit } = useContext(TodoAppContext);
+  const { userInfo, handleChangeUserInfo, handleSubmit } = useContext(TodoAppContext);
 
   return (
     <>
@@ -18,7 +18,7 @@ export const Portada = () => {
               className='input'
               name='name'
               value={userInfo.name || ''}
-              onChange={handleChange}
+              onChange={handleChangeUserInfo}
             />
 
             <input
@@ -27,7 +27,7 @@ export const Portada = () => {
               className='input'
               name='lastName'
               value={userInfo.lastName || ''}
-              onChange={handleChange}
+              onChange={handleChangeUserInfo}
             />
           </div>
 
