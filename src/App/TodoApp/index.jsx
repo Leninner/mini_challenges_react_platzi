@@ -1,5 +1,4 @@
 import { Helmet } from 'react-helmet';
-import { Portada } from './components/Portada';
 import { ReturnToHome } from '../ReturnToHome';
 import { TodoAppContext } from './context';
 import { useUserValues } from './hooks/useInitialState';
@@ -7,8 +6,6 @@ import { Main } from './containers/Main';
 
 export const TodoApp = () => {
   const initialUserValues = useUserValues();
-
-  const { userInfo } = initialUserValues;
 
   return (
     <>
@@ -20,7 +17,7 @@ export const TodoApp = () => {
           Manage your tasks <span className='text-red-500'>in one place</span>
         </h1>
       </header>
-      <TodoAppContext.Provider value={initialUserValues}>{!userInfo ? <Portada /> : <Main />}</TodoAppContext.Provider>
+      <TodoAppContext.Provider value={initialUserValues}>{<Main />}</TodoAppContext.Provider>
       <ReturnToHome />
     </>
   );
