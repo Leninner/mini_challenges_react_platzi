@@ -3,6 +3,14 @@ import axios from 'axios';
 
 export const useFetchData = (search) => {
   const [datos, setDatos] = useState({ datos: [], loading: true });
+  const fetchData = async () => {
+    setDatos({ ...datos, loading: true });
+    const response = await axios.get(
+      `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${encodeURI(search)}&limit=10`
+    );
+
+    return response;
+  };
 
   const API_KEY = 'D6gVdyaY26uP8M2Ibq0PcVsjWqJnkK8Z';
 
@@ -13,15 +21,6 @@ export const useFetchData = (search) => {
         loading: false,
       });
     } else {
-      const fetchData = async () => {
-        setDatos({ ...datos, loading: true });
-        const response = await axios.get(
-          `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${encodeURI(search)}&limit=10`
-        );
-
-        return response;
-      };
-
       fetchData()
         .then(({ data: { data } }) => {
           setDatos({ datos: data, loading: false });
