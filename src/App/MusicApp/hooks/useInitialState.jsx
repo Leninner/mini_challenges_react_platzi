@@ -6,7 +6,7 @@ export const useInitialState = () => {
 
   const fetchData = async (url) => {
     const response = await axios.get(url, {
-      acao: 'buscar',
+      mode: 'no-cors',
     });
 
     return response;
