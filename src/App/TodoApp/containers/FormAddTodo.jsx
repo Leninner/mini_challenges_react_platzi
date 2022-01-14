@@ -16,7 +16,7 @@ export const FormAddTodo = () => {
     setShowForm(false);
     setIsEditing({ ...isEditing, isEditing: false });
     setTodos([todoInfo, ...todos]);
-    setTodoInfo({});
+    setTodoInfo({ isCompleted: false });
   };
 
   const handleSubmitEdit = (e) => {
@@ -26,7 +26,7 @@ export const FormAddTodo = () => {
     const newTodos = [...todos];
     newTodos[todos.indexOf(todos.find((todo) => todo.title === isEditing.todo.title))] = todoInfo;
     setTodos([...newTodos]);
-    setTodoInfo({});
+    setTodoInfo({ isCompleted: false });
   };
 
   const handleChange = (e) => {
@@ -47,7 +47,7 @@ export const FormAddTodo = () => {
                 onClick={() => {
                   setShowForm(false);
                   setIsEditing({ ...isEditing, isEditing: false });
-                  setTodoInfo({});
+                  setTodoInfo({ isCompleted: false });
                 }}
               />
             </div>

@@ -1,4 +1,3 @@
-import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { useContext } from 'react';
 import { TodoAppContext } from '../context';
 
@@ -8,17 +7,18 @@ export const Header = () => {
 
   const { name = 'Lenin' } = userInfo;
 
+  const completedTodos = todos.filter((todo) => todo.isCompleted).length;
+
   return (
     <header className='relative flex items-center justify-between px-2 py-3 border-b-2 border-slate-300'>
       <div className='flex items-center text-slate-800'>
-        <HiOutlineMenuAlt2 size='32' />
         <p className='ml-4 font-medium text-gray-800'>
           Hi {name}, {date}
         </p>
       </div>
 
-      <p className='text-gray-600 md:absolute md:left-1/2'>
-        <span className='font-bold'>{todos.length} tasks</span>
+      <p className='text-gray-600  md:absolute md:left-1/2'>
+        <span className='font-medium'>{todos.length ? `${completedTodos}/${todos.length} tasks` : '0 tasks'}</span>
       </p>
 
       <img

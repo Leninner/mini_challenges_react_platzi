@@ -7,7 +7,9 @@ export const TodoItem = ({
   title = 'Comer rico',
   description = 'Vamos a cocinar esto y te va a gustar',
   date = new Date().toDateString(),
+  isCompleted,
   onDelete,
+  onComplete,
 }) => {
   const [isOptions, setIsOptions] = useState(false);
   const { isEditing, setIsEditing } = useContext(TodoAppContext);
@@ -22,7 +24,7 @@ export const TodoItem = ({
 
   return (
     <>
-      <div className='TodoItem' onClick={handleOptions}>
+      <div className={`${isCompleted && 'isComplete'} TodoItem`} onClick={handleOptions}>
         <h1 className='text-xl font-bold '>{title}</h1>
         <p className='mb-1 '>{description}</p>
         <span className='text-sm hover:text-slate-800'>{date}</span>
@@ -48,7 +50,14 @@ export const TodoItem = ({
                   }>
                   Editar
                 </li>
-                <li className='w-5/6 m-2 text-sm font-bold border-b text-slate-800 hover:text-green'>Completado</li>
+                {!isCompleted && (
+                  <li
+                    className='w-5/6 m-2 text-sm font-bold border-b text-slate-800 hover:text-green'
+                    onClick={onComplete}>
+                    Completado
+                  </li>
+                )}
+
                 <li
                   className='w-5/6 m-2 text-sm font-bold border-b text-slate-800 hover:text-red-500'
                   onClick={onDelete}>

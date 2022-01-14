@@ -3,11 +3,16 @@ import { useEffect, useState } from 'react';
 export const useUserValues = () => {
   const [userInfo, setUserInfo] = useState({});
   const [show, setShow] = useState(true);
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const todos = localStorage.getItem('todos');
+    return todos ? JSON.parse(todos) : [];
+  });
   const [showForm, setShowForm] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [searchedTodos, setSearchedTodos] = useState([]);
-  const [todoInfo, setTodoInfo] = useState({});
+  const [todoInfo, setTodoInfo] = useState({
+    isCompleted: false,
+  });
   const [value, setValue] = useState('');
 
   const handleChangeSearch = (e) => {
@@ -17,6 +22,10 @@ export const useUserValues = () => {
   useEffect(() => {
     setSearchedTodos(todos.filter((todo) => todo.title?.toLowerCase().includes(value.toLowerCase())));
   }, [value, todos]);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const handleChangeUserInfo = (e) => {
     const { name, value } = e.target;
