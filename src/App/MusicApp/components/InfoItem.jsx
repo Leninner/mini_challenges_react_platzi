@@ -9,7 +9,7 @@ export const InfoItem = ({ albumTitle, cover_small, rank, artistName, artistId, 
       </div>
 
       <div className='flex items-center justify-between'>
-        <p className='font-medium text-gray-500 w-60 md:w-full'>
+        <p className='font-medium text-gray-500 w-60 lg:w-9/12'>
           Album: <span className='font-bold text-red-500'>{albumTitle}</span>
         </p>
         <a href={`https://www.deezer.com/artist/${artistId}`} target='_blank' rel='noreferrer'>
