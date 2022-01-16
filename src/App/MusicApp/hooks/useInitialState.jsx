@@ -4,10 +4,20 @@ import axios from 'axios';
 export const useInitialState = () => {
   const [searchArtist, setSearchArtist] = useState('');
 
-  const fetchData = async (url) => {
-    const response = await axios.get(url);
+  const options = {
+    method: 'GET',
+    url: 'https://shazam.p.rapidapi.com/search',
+    params: { term: '', offset: '0' },
+    headers: {
+      'x-rapidapi-host': 'shazam.p.rapidapi.com',
+      'x-rapidapi-key': '1c1606c74bmsh0e181c8950a7d22p10f75ajsndf5748021826',
+    },
+  };
 
-    return response;
+  const fetchData = async (searchTerm) => {
+    const response = await axios.request({ ...options, params: { ...options.params, term: searchTerm } });
+    const { status, data } = response;
+    console.log({ status, data });
   };
 
   const handleChange = (e) => {
@@ -17,13 +27,7 @@ export const useInitialState = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetchData(
-      `https://api.musixmatch.com/ws/1.1/artist.search?q_artist=${encodeURI(
-        searchArtist
-      )}&page_size=5&apikey=1560a82e79bee9e84d481008bf582bb1`
-    )
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
+    fetchData(searchArtist);
 
     setSearchArtist('');
   };
