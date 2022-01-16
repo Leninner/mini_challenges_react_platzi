@@ -17,7 +17,6 @@ export const MusicApp = () => {
         <Header />
         <MusicAppBody />
       </MusicAppContext.Provider>
-
       <ReturnToHome />
     </>
   );

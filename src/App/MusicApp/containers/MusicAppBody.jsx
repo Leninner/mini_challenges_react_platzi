@@ -1,5 +1,5 @@
-import { ArtistList } from '../components/ArtistList';
+import { List } from '../components/List';
 
 export const MusicAppBody = () => {
-  return <ArtistList />;
+  return <List />;
 };
