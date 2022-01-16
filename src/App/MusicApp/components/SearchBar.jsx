@@ -8,7 +8,7 @@ export const SearchBar = () => {
     <form className='absolute left-0 right-0 flex justify-center -bottom-5' onSubmit={handleSubmit}>
       <input
         type='text'
-        placeholder='Search for an artist'
+        placeholder='Search for a song'
         className='inputMusicApp'
         value={searchArtist}
         onChange={handleChange}
