@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { FetchData } from '../helpers/FetchData';
 
 export const useInitialState = () => {
@@ -17,5 +17,7 @@ export const useInitialState = () => {
     setSearchArtist('');
   };
 
-  return { searchArtist, handleChange, handleSubmit, songData };
+  const audioRef = useRef(new Audio());
+
+  return { searchArtist, handleChange, handleSubmit, songData, audioRef };
 };

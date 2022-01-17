@@ -1,7 +1,8 @@
 import { AiOutlineLink, AiOutlinePause } from 'react-icons/ai';
 import { InfoItem } from './InfoItem';
 import { BsFillPlayFill } from 'react-icons/bs';
-import { useState, useRef } from 'react';
+import { useState, useContext } from 'react';
+import { MusicAppContext } from '../context';
 
 export const Item = (props) => {
   const {
@@ -14,19 +15,21 @@ export const Item = (props) => {
     preview: musicPreview,
   } = props;
 
+  const { audioRef } = useContext(MusicAppContext);
+
   const [isPlaying, setIsPlaying] = useState(false);
-
-  const audioRef = useRef(new Audio(musicPreview));
-
-  audioRef.current.loop = true;
 
   const play = () => {
     setIsPlaying(true);
+    audioRef.current.src = musicPreview;
     audioRef.current.play();
   };
 
+  console.log(audioRef.current);
+
   const pause = () => {
     setIsPlaying(false);
+    audioRef.current.src = musicPreview;
     audioRef.current.pause();
   };
 
