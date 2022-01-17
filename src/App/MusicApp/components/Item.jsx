@@ -16,11 +16,11 @@ export const Item = (props) => {
   } = props;
 
   const { audioRef } = useContext(MusicAppContext);
+  audioRef.current.loop = true;
 
   const [isPlaying, setIsPlaying] = useState(false);
 
   const play = () => {
-    setIsPlaying(true);
     audioRef.current.src = musicPreview;
     audioRef.current.play();
   };
@@ -28,13 +28,12 @@ export const Item = (props) => {
   console.log(audioRef.current);
 
   const pause = () => {
-    setIsPlaying(false);
-    audioRef.current.src = musicPreview;
     audioRef.current.pause();
   };
 
   const togglePlay = () => {
-    isPlaying ? pause() : play();
+    audioRef.current.paused ? play() : pause();
+    setIsPlaying(!isPlaying);
   };
 
   const secondsToMinutes = (seconds) =>
@@ -53,7 +52,7 @@ export const Item = (props) => {
         <div className='absolute bottom-0 w-full h-1/3 md:h-1/5 bg-gradient-to-b from-transparent to-black opacity-90' />
 
         <div className='absolute flex items-center justify-between w-full px-5 text-white cursor-pointer bottom-2'>
-          {isPlaying ? (
+          {!audioRef.current.paused ? (
             <AiOutlinePause size='35' onClick={togglePlay} />
           ) : (
             <BsFillPlayFill size='35' onClick={togglePlay} />
