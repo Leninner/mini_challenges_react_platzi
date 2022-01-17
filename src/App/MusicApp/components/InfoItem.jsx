@@ -1,5 +1,4 @@
-export const InfoItem = ({ albumTitle, cover_small, rank, artistName, artistId, artistPicture, isPlaying }) => {
-  console.log(isPlaying);
+export const InfoItem = ({ albumTitle, cover_small, rank, artistName, artistId, artistPicture }) => {
   return (
     <div className='w-full p-2 px-5 rounded-b-3xl'>
       <div className='flex items-center justify-between'>
@@ -18,11 +17,7 @@ export const InfoItem = ({ albumTitle, cover_small, rank, artistName, artistId, 
           Album: <span className='font-bold text-red-500'>{albumTitle}</span>
         </p>
         <a href={`https://www.deezer.com/artist/${artistId}`} target='_blank' rel='noreferrer'>
-          <img
-            src={cover_small}
-            alt=''
-            className={`w-10 ${isPlaying && 'animate-spin'} border rounded-full border-slate-400`}
-          />
+          <img src={cover_small} alt='' className={`w-10 border rounded-full border-slate-400`} />
         </a>
       </div>
     </div>

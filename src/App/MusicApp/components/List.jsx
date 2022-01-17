@@ -7,10 +7,10 @@ export const List = () => {
 
   return (
     <section className='min-h-screen pt-5 bg-gray-300 lg:grid lg:grid-cols-4 lg:w-full lg:grid-flow-row'>
-      {songData.map((song) => {
+      {songData.map((song, index) => {
         const { id } = song;
 
-        return <Item key={id} {...song} />;
+        return <Item key={id} {...song} index={index} />;
       })}
     </section>
   );

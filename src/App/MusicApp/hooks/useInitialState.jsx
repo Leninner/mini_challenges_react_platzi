@@ -4,6 +4,7 @@ import { FetchData } from '../helpers/FetchData';
 export const useInitialState = () => {
   const [searchArtist, setSearchArtist] = useState('');
   const [songData, setSongData] = useState([]);
+  const [currentSong, setCurrentSong] = useState(0);
 
   const handleChange = (e) => {
     setSearchArtist(e.target.value);
@@ -19,5 +20,5 @@ export const useInitialState = () => {
 
   const audioRef = useRef(new Audio());
 
-  return { searchArtist, handleChange, handleSubmit, songData, audioRef };
+  return { searchArtist, handleChange, handleSubmit, songData, audioRef, currentSong, setCurrentSong };
 };

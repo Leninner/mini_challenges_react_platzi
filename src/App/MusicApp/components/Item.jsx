@@ -1,8 +1,7 @@
-import { AiOutlineLink, AiOutlinePause } from 'react-icons/ai';
+import { AiOutlineLink } from 'react-icons/ai';
 import { InfoItem } from './InfoItem';
-import { BsFillPlayFill } from 'react-icons/bs';
-import { useState, useContext } from 'react';
 import { MusicAppContext } from '../context';
+import { useContext } from 'react';
 
 export const Item = (props) => {
   const {
@@ -12,28 +11,13 @@ export const Item = (props) => {
     album: { cover_big, title: albumTitle, cover_small },
     rank,
     artist: { name: artistName, id: artistId, picture_small: artistPicture },
-    preview: musicPreview,
+    index,
   } = props;
 
-  const { audioRef } = useContext(MusicAppContext);
-  audioRef.current.loop = true;
+  const { setCurrentSong } = useContext(MusicAppContext);
 
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const play = () => {
-    audioRef.current.src = musicPreview;
-    audioRef.current.play();
-  };
-
-  console.log(audioRef.current);
-
-  const pause = () => {
-    audioRef.current.pause();
-  };
-
-  const togglePlay = () => {
-    audioRef.current.paused ? play() : pause();
-    setIsPlaying(!isPlaying);
+  const handleClick = () => {
+    setCurrentSong(index);
   };
 
   const secondsToMinutes = (seconds) =>
@@ -48,16 +32,10 @@ export const Item = (props) => {
           onClick={() => window.open(link)}
         />
 
-        <img src={cover_big} alt='' className='w-full h-full rounded-t-3xl' onClick={togglePlay} />
+        <img src={cover_big} alt='' className='w-full h-full rounded-t-3xl' onClick={handleClick} />
         <div className='absolute bottom-0 w-full h-1/3 md:h-1/5 bg-gradient-to-b from-transparent to-black opacity-90' />
 
         <div className='absolute flex items-center justify-between w-full px-5 text-white cursor-pointer bottom-2'>
-          {!audioRef.current.paused ? (
-            <AiOutlinePause size='35' onClick={togglePlay} />
-          ) : (
-            <BsFillPlayFill size='35' onClick={togglePlay} />
-          )}
-
           <p className='text-lg font-bold w-44 md:w-full'>{title}</p>
           <p className='text-right'>
             Duration: <span className='font-bold'>{secondsToMinutes(duration)}</span>
@@ -72,7 +50,6 @@ export const Item = (props) => {
         artistName={artistName}
         artistId={artistId}
         artistPicture={artistPicture}
-        isPlaying={isPlaying}
       />
     </div>
   );
