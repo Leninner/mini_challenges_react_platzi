@@ -4,7 +4,9 @@ export const InfoItem = ({ albumTitle, cover_small, rank, artistName, artistId, 
       <audio preload='none' controls className='w-full mb-2 rounded-full' src={musicPreview} loop></audio>
 
       <div className='flex items-center justify-between'>
-        <p className='text-xl font-bold w-60 md:w-full'>{artistName}</p>
+        <p className='font-medium text-gray-500 w-60 lg:w-9/12'>
+          Artist: <span className='font-bold text-teal-600'>{artistName}</span>
+        </p>
         <img src={artistPicture} alt={artistName} className='w-10 rounded-full' />
       </div>
 
