@@ -1,5 +1,7 @@
-import { AiOutlineLink } from 'react-icons/ai';
+import { AiOutlineLink, AiOutlinePause } from 'react-icons/ai';
 import { InfoItem } from './InfoItem';
+import { BsFillPlayFill } from 'react-icons/bs';
+import { useState, useRef } from 'react';
 
 export const Item = (props) => {
   const {
@@ -11,6 +13,26 @@ export const Item = (props) => {
     artist: { name: artistName, id: artistId, picture_small: artistPicture },
     preview: musicPreview,
   } = props;
+
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const audioRef = useRef(new Audio(musicPreview));
+
+  audioRef.current.loop = true;
+
+  const play = () => {
+    setIsPlaying(true);
+    audioRef.current.play();
+  };
+
+  const pause = () => {
+    setIsPlaying(false);
+    audioRef.current.pause();
+  };
+
+  const togglePlay = () => {
+    isPlaying ? pause() : play();
+  };
 
   const secondsToMinutes = (seconds) =>
     Math.floor(seconds / 60) + ':' + (seconds % 60 < 10 ? '0' : '') + (seconds % 60);
@@ -24,12 +46,18 @@ export const Item = (props) => {
           onClick={() => window.open(link)}
         />
 
-        <img src={cover_big} alt='' className='w-full h-full rounded-t-3xl' />
+        <img src={cover_big} alt='' className='w-full h-full rounded-t-3xl' onClick={togglePlay} />
         <div className='absolute bottom-0 w-full h-1/3 md:h-1/5 bg-gradient-to-b from-transparent to-black opacity-90' />
 
-        <div className='absolute flex items-center justify-between w-full px-5 text-white bottom-2'>
+        <div className='absolute flex items-center justify-between w-full px-5 text-white cursor-pointer bottom-2'>
+          {isPlaying ? (
+            <AiOutlinePause size='35' onClick={togglePlay} />
+          ) : (
+            <BsFillPlayFill size='35' onClick={togglePlay} />
+          )}
+
           <p className='text-lg font-bold w-44 md:w-full'>{title}</p>
-          <p className=''>
+          <p className='text-right'>
             Duration: <span className='font-bold'>{secondsToMinutes(duration)}</span>
           </p>
         </div>
@@ -42,7 +70,7 @@ export const Item = (props) => {
         artistName={artistName}
         artistId={artistId}
         artistPicture={artistPicture}
-        musicPreview={musicPreview}
+        isPlaying={isPlaying}
       />
     </div>
   );

@@ -17,7 +17,5 @@ export const useInitialState = () => {
     setSearchArtist('');
   };
 
-  console.log('songData', songData);
-
   return { searchArtist, handleChange, handleSubmit, songData };
 };
