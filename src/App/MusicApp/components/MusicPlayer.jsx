@@ -1,15 +1,17 @@
 import { BsPauseFill } from 'react-icons/bs';
 import { BiVolumeMute } from 'react-icons/bi';
 import { MusicAppContext } from '../context';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 export const MusicPlayer = () => {
   const SIZE = '35';
   const { currentSong, audioRef, songData } = useContext(MusicAppContext);
 
-  audioRef.current.src = songData[currentSong]?.preview;
-  audioRef.current.loop = true;
-  audioRef.current.autoplay = true;
+  useEffect(() => {
+    audioRef.current.src = songData[currentSong]?.preview;
+    audioRef.current.loop = true;
+    audioRef.current.autoplay = true;
+  }, [currentSong, songData, audioRef]);
 
   const artistName = songData[currentSong]?.artist.name;
   const songTitle = songData[currentSong]?.title;

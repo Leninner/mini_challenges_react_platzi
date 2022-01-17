@@ -3,7 +3,10 @@ import { FetchData } from '../helpers/FetchData';
 
 export const useInitialState = () => {
   const [searchArtist, setSearchArtist] = useState('');
-  const [songData, setSongData] = useState([]);
+  const [songData, setSongData] = useState(() => {
+    const data = localStorage.getItem('songData');
+    return data ? JSON.parse(data) : [];
+  });
   const [currentSong, setCurrentSong] = useState(0);
 
   const handleChange = (e) => {
@@ -13,7 +16,10 @@ export const useInitialState = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    FetchData(searchArtist).then(({ data: { data } }) => setSongData(data));
+    FetchData(searchArtist).then(({ data: { data } }) => {
+      setSongData(data);
+      localStorage.setItem('songData', JSON.stringify(data));
+    });
 
     setSearchArtist('');
   };
