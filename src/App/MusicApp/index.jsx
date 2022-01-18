@@ -11,7 +11,7 @@ export const MusicApp = () => {
   return (
     <>
       <Helmet>
-        <title>Music App 😉</title>
+        <title>Music App ❤</title>
       </Helmet>
       <MusicAppContext.Provider value={initialState}>
         <Header />
