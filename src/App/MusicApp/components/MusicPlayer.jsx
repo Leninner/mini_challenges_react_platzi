@@ -13,9 +13,9 @@ export const MusicPlayer = () => {
     audioRef.current.autoplay = true;
   }, [currentSong, songData.datos, audioRef]);
 
-  const artistName = songData.datos[currentSong]?.artist.name;
-  const songTitle = songData.datos[currentSong]?.title;
-  const coverSmall = songData.datos[currentSong]?.album.cover_small;
+  const artistName = songData.datos[currentSong]?.artist.name || '';
+  const songTitle = songData.datos[currentSong]?.title || '';
+  const coverSmall = songData.datos[currentSong]?.album.cover_small || '';
 
   const playSong = () => {
     audioRef.current.play();
