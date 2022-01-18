@@ -12,4 +12,6 @@ Also, I used **hooks and context API** to make the code more readeable.
 
 <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white">
 
+.
+
 ## This project is made with ❤ by **@leninner**
