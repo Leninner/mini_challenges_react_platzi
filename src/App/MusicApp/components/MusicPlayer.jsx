@@ -8,14 +8,14 @@ export const MusicPlayer = () => {
   const { currentSong, audioRef, songData } = useContext(MusicAppContext);
 
   useEffect(() => {
-    audioRef.current.src = songData[currentSong]?.preview;
+    audioRef.current.src = songData.datos[currentSong]?.preview;
     audioRef.current.loop = true;
     audioRef.current.autoplay = true;
-  }, [currentSong, songData, audioRef]);
+  }, [currentSong, songData.datos, audioRef]);
 
-  const artistName = songData[currentSong]?.artist.name;
-  const songTitle = songData[currentSong]?.title;
-  const coverSmall = songData[currentSong]?.album.cover_small;
+  const artistName = songData.datos[currentSong]?.artist.name;
+  const songTitle = songData.datos[currentSong]?.title;
+  const coverSmall = songData.datos[currentSong]?.album.cover_small;
 
   const playSong = () => {
     audioRef.current.play();

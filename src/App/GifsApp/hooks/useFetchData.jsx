@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export const useFetchData = (search) => {
   const [datos, setDatos] = useState({ datos: [], loading: true });
+
   const fetchData = async () => {
     setDatos({ ...datos, loading: true });
     const response = await axios.get(

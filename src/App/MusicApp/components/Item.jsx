@@ -39,7 +39,10 @@ export const Item = (props) => {
             />
 
             <img src={cover_big} alt='' className='w-full h-full rounded-t-3xl' onClick={handleClick} />
-            <div className='absolute bottom-0 w-full h-1/3 md:h-1/5 bg-gradient-to-b from-transparent to-black opacity-90' />
+            <div
+              className='absolute bottom-0 w-full h-1/3 md:h-1/5 bg-gradient-to-b from-transparent to-black opacity-90'
+              onClick={handleClick}
+            />
 
             <div className='absolute flex items-center justify-between w-full px-5 text-white cursor-pointer bottom-2'>
               <p className='text-lg font-bold w-44 md:w-full'>{title}</p>

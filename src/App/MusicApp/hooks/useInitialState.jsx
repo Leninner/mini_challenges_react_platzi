@@ -5,7 +5,7 @@ export const useInitialState = () => {
   const [searchArtist, setSearchArtist] = useState('');
   const [songData, setSongData] = useState(() => {
     const data = localStorage.getItem('songData');
-    return data ? JSON.parse(data) : [];
+    return data ? JSON.parse(data) : { datos: [], loading: false };
   });
   const [currentSong, setCurrentSong] = useState(0);
 
@@ -15,10 +15,11 @@ export const useInitialState = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSongData({ ...songData, loading: true });
 
     FetchData(searchArtist).then(({ data: { data } }) => {
-      setSongData(data);
-      localStorage.setItem('songData', JSON.stringify(data));
+      setSongData({ datos: data, loading: false });
+      localStorage.setItem('songData', JSON.stringify({ datos: data, loading: false }));
     });
 
     setSearchArtist('');
