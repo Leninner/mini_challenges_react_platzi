@@ -12,7 +12,7 @@ export const List = () => {
       {loading ? (
         <p className='feedback'>Loading...</p>
       ) : (
-        datos.map((song, index) => {
+        datos?.map((song, index) => {
           const { id } = song;
 
           return <Item key={id} {...song} index={index} />;
